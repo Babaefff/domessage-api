@@ -2,6 +2,7 @@
 const express = require("express");
 
 const dotenv = require("dotenv");
+const cors = require("cors");
 const connectDB = require("./config/db");
 const path = require("path");
 
@@ -13,6 +14,7 @@ const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 
 // configuration
 const app = express();
+app.use(cors())
 app.use(express.json()); //json gondeririya onu qebul elesin deye
 app.use(express.urlencoded({ extended: true }));
 dotenv.config();
